@@ -1,0 +1,9 @@
+---
+- hosts: web
+  tasks:
+    - name: Ensure the default Apache port is 8080
+      lineinfile:
+        path: /etc/apache2/ports.conf
+        regexp: '^Listen '
+        insertafter: '^#Listen '
+        line: Listen 8080
